@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style media="screen">
+    body {
+      background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  text-align: center;
+
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 42 px;
+  margin-bottom: 20px;
+  padding-left: 8%;
+  padding-right:8%;
+}
+
+#countdown {
+  font-size: 72px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-left: 8%;
+  padding-right:8%;
+}
+
+p {
+  padding-left: 8%;
+  padding-right:8%;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+  </style>
+  <script type="text/javascript">
+    // Set the countdown date (adjust this to your desired date)
+const countdownDate = new Date("2023-12-31T00:00:00Z").getTime();
+
+// Update the countdown every second
+const countdown = setInterval(() => {
+  // Get today's date and time
+  const now = new Date().getTime();
+
+  // Find the time remaining between now and the countdown date
+  const timeRemaining = countdownDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+  // Display the countdown timer
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+  // If the countdown is finished, display a message
+  if (timeRemaining < 0) {
+    clearInterval(countdown);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
+
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Coming Soon</h1>
+    <div id="countdown"></div>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
